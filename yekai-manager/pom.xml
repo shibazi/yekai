@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>limter-manager</artifactId>
+    <artifactId>yekai-manager</artifactId>
 
     <dependencies>
         <dependency>
