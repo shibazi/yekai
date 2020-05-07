@@ -7,7 +7,6 @@ import com.yekai.limiter.service.tools.LimitKeyCache;
 import lombok.extern.slf4j.Slf4j;
 import java.util.List;
 import java.util.Set;
-
 import static com.yekai.limiter.service.model.LimitTypeEnum.VALIDATE;
 import static com.yekai.limiter.service.tools.LimitConfigCache.limitConfigMap;
 
@@ -104,7 +103,7 @@ public class LimiterBiz {
         if(effectiveConfig[0].size() == 0){
             return LimiterResBO.getRes(limiterReq.requireSystem,limitType.name());
         }
-        return afterProcess(SentinelLuaExecutor.getExecutor().execute(effectiveConfig[0],effectiveConfig[1]),limiterReq);
+        return afterProcess(LimiterExecutor.getExecutor().execute(effectiveConfig[0],effectiveConfig[1]),limiterReq);
     }
 
     /**

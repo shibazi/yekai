@@ -17,11 +17,11 @@ import java.io.Serializable;
 public class BaseResDTO implements Serializable {
 
     /**
-     * 是否被限流
+     * 调用结果
      *      true： 被限流
      *      false：未被限流
      */
-    public boolean limitFlag;
+    public boolean result;
 
     /**
      * 日志跟踪号

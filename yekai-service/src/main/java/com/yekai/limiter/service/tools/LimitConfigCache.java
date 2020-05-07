@@ -38,7 +38,8 @@ public class LimitConfigCache {
 
             infos.stream()
                     .collect(Collectors.groupingBy(LimitInfoDO::getKey))
-                    .forEach((key, value) -> limitConfigMap.put(key, String.valueOf(value.stream().sorted().findFirst().get().getValue())));
+                    .forEach((key, value) -> limitConfigMap.put(key,
+                            String.valueOf(value.stream().sorted().findFirst().get().getValue())));
         }catch (Exception e){
             log.error("限流规则加载失败：",e);
             throw new LimitException(ResponseCodeEnum.ERR_000003,e);

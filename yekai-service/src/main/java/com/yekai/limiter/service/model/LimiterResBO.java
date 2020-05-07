@@ -54,7 +54,7 @@ public class LimiterResBO {
         limiterRes.setLimiterType(limiter.limiterType);
         limiterRes.setLimitKey(limiter.limitKey);
         limiterRes.setPermitsPreSecond(limiter.permitsPreSecond);
-        limiterRes.setLimitFlag(limiter.limitFlag);
+        limiterRes.setResult(limiter.limitFlag);
         limiterRes.setLogNo(logNo);
         return limiterRes;
     }

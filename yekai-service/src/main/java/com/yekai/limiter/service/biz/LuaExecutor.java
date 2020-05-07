@@ -20,7 +20,7 @@ public interface LuaExecutor {
      *
      * @return          SHA1
      */
-    String load();
+    String load(String script);
 
     /**
      * 执行命令
