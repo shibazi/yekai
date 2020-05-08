@@ -75,7 +75,7 @@ public class LimiterBiz {
             default:
                 log.error("limitType error:{}",limitType);
         }
-        return null;
+        return res;
     }
 
     /**
