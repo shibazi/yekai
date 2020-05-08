@@ -18,6 +18,7 @@ public interface LuaExecutor {
     /**
      * 加载脚本
      *
+     * @param script    lua脚本
      * @return          SHA1
      */
     String load(String script);

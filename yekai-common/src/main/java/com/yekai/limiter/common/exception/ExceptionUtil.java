@@ -1,7 +1,6 @@
 package com.yekai.limiter.common.exception;
 
 import com.yekai.limiter.facade.model.BaseReqDTO;
-import com.yekai.limiter.facade.model.BaseResDTO;
 import com.yekai.limiter.facade.model.LimiterResDTO;
 
 import static com.yekai.limiter.common.exception.ResponseCodeEnum.ERR_000005;
