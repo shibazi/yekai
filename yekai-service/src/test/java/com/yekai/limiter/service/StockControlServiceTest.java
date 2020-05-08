@@ -11,6 +11,7 @@ import java.util.UUID;
  * 库存验证
  *
  * <p>
+ *     1、减库存验证
  * </p>
  *
  * @author : LZQ Date: 2020/05/07  Version: 1.0
@@ -19,8 +20,11 @@ public class StockControlServiceTest {
 
     private StockControlFacade stockControlFacade = new StockControlService();
 
+    /**
+     * 减库存验证
+     */
     @Test
-    public void test(){
+    public void testDecrStock(){
         StockReqDTO stockReqDTO = new StockReqDTO();
         stockReqDTO.setRequireSystem("TRADE");
         stockReqDTO.setNum(2);
