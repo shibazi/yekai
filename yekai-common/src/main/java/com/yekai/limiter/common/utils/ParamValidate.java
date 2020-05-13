@@ -3,6 +3,7 @@ package com.yekai.limiter.common.utils;
 import com.yekai.limiter.common.exception.LimitException;
 import com.yekai.limiter.common.exception.ResponseCodeEnum;
 import java.util.Set;
+import java.util.concurrent.atomic.AtomicInteger;
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
@@ -18,6 +19,10 @@ import javax.validation.ValidatorFactory;
  * @author : LZQ Date: 2020/04/28  Version: 1.0
  */
 public class ParamValidate {
+
+    private ParamValidate() {}
+
+    public static AtomicInteger atomicInteger = new AtomicInteger(0);
 
     /**
      * 校验参数框架

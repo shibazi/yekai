@@ -1,14 +1,11 @@
 package com.yekai.limiter.service.biz;
 
 import com.google.common.collect.Lists;
-import com.google.common.collect.Sets;
+import com.yekai.limiter.manager.model.LimitInfoDO;
 import com.yekai.limiter.service.model.*;
-import com.yekai.limiter.service.tools.LimitKeyCache;
 import lombok.extern.slf4j.Slf4j;
 import java.util.List;
-import java.util.Set;
 import static com.yekai.limiter.service.model.LimitTypeEnum.VALIDATE;
-import static com.yekai.limiter.service.tools.LimitConfigCache.limitConfigMap;
 
 /**
  * 限流业务处理
@@ -87,11 +84,13 @@ public class LimiterBiz {
      * @return                  有效规则
      */
     public List<String>[] beforeProcess(LimiterBO limiterReq){
-        Set<String> combineSet = LimitKeyCache.getKeySet(Lists.newArrayList(limiterReq.getKeys()));
-
-        List<String> keys = Lists.newArrayList(Sets.intersection(combineSet, limitConfigMap.keySet()));
+        List<LimitInfoDO> matched =Matcher.get().match(limiterReq);
+        List<String> keys = Lists.newArrayList();
         List<String> values = Lists.newArrayList();
-        keys.forEach(key ->values.add(limitConfigMap.get(key)));
+        for(LimitInfoDO config:matched){
+            keys.add(config.getKey());
+            values.add(String.valueOf(config.getValue()));
+        }
         return new List[]{keys, values};
     }
 
@@ -113,7 +112,8 @@ public class LimiterBiz {
         if(OK.equals(result)){
             return LimiterResBO.getRes(limiterReq.requireSystem,limitType.name());
         }
-        Integer permitsPreSecond = Integer.parseInt(limitConfigMap.get(result));
+        //todo
+        Integer permitsPreSecond = 0;
         return LimiterResBO.getRes(limiterReq.requireSystem,limitType.name(),result,permitsPreSecond);
     }
 }

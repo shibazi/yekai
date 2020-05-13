@@ -1,5 +1,6 @@
 package com.yekai.limiter.manager.model;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -12,6 +13,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
+@EqualsAndHashCode(callSuper = false)
 public class LimitInfoDO extends BaseDO implements Comparable<LimitInfoDO> {
 
     /**

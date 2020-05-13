@@ -3,6 +3,8 @@ package com.yekai.limiter.facade.model;
 import lombok.*;
 import org.hibernate.validator.constraints.NotEmpty;
 import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -20,8 +22,8 @@ public class LimiterReqDTO extends BaseReqDTO {
     /**
      * 需要被计数的参数列表
      */
-    @Valid
-    @NotEmpty(message = "限流的key 不能为空")
-    public Set<LimitKey> keys;
+    @NotEmpty(message = "限流请求参数不能为空")
+    @NotNull(message = "限流请求参数不能为空")
+    public Map<String,String> params;
 
 }

@@ -1,8 +1,7 @@
 package com.yekai.limiter.service;
 
-import com.google.common.collect.Sets;
+import com.google.common.collect.ImmutableMap;
 import com.yekai.limiter.facade.LimiterControlFacade;
-import com.yekai.limiter.facade.model.LimitKey;
 import com.yekai.limiter.facade.model.LimiterReqDTO;
 import com.yekai.limiter.facade.model.LimiterResDTO;
 import org.junit.Test;
@@ -26,7 +25,7 @@ public class LimiterControlServiceTest {
         LimiterReqDTO limiterReqDTO = new LimiterReqDTO();
         limiterReqDTO.setRequireSystem("TRADE");
         limiterReqDTO.setLogId(UUID.randomUUID().toString());
-        limiterReqDTO.setKeys(Sets.newHashSet(new LimitKey("BANK","ICBC"),new LimitKey("ORG","WECHAT")));
+        limiterReqDTO.setParams(ImmutableMap.of("BANK","ICBC","CODE","TRADE"));
         LimiterResDTO res = limiterControlFacade.limiterAcquire(limiterReqDTO);
         System.out.println(res);
     }
