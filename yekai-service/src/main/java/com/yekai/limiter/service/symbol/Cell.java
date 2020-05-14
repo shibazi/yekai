@@ -10,7 +10,7 @@ import lombok.*;
 @Getter
 @Setter
 @AllArgsConstructor
-public class Cell {
+public class Cell implements Comparable<Cell> {
 
     /**
      * 节点类型
@@ -25,6 +25,12 @@ public class Cell {
     @Override
     public String toString() {
         return value;
+    }
+
+
+    @Override
+    public int compareTo(Cell o) {
+        return o.value.compareTo(value);
     }
 
     /**

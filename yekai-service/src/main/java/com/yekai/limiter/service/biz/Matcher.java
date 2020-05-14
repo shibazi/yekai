@@ -61,7 +61,7 @@ public class Matcher {
      * 逐条匹配规则
      */
     public boolean iterator(Map<String,String> params, TreeNode node){
-        if(node.value.getCellType() != SYMBOL){
+        if(node == null || node.value.getCellType() != SYMBOL){
             return false;
         }
         return ((Symbol)node.getValue()).operating(params,node,this);
