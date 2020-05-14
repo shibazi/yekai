@@ -1,4 +1,4 @@
-package com.yekai.limiter.common.utils;
+package com.yekai.limiter.service.symbol;
 
 import com.yekai.limiter.service.symbol.Cell;
 import com.yekai.limiter.service.symbol.Expression;
