@@ -1,16 +1,10 @@
 package com.yekai.limiter.service.symbol;
 
-import com.yekai.limiter.service.symbol.Cell;
-import com.yekai.limiter.service.symbol.Expression;
-import com.yekai.limiter.service.symbol.TreeNode;
-import com.yekai.limiter.service.symbol.TreePrinter;
 import com.yekai.limiter.service.symbol.impl.AndSymbol;
 import com.yekai.limiter.service.symbol.impl.EqualSymbol;
 import com.yekai.limiter.service.symbol.impl.OrSymbol;
 import org.junit.Test;
-
 import java.util.Objects;
-
 import static com.yekai.limiter.service.symbol.Cell.CellType.*;
 
 /**
