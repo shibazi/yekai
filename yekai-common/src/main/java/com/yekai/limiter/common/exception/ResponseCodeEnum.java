@@ -14,6 +14,11 @@ import lombok.Setter;
 public enum ResponseCodeEnum  {
 
     /**
+     * 节点类型有误
+     */
+    ERR_000010("ERR_000010", "节点类型有误"),
+
+    /**
      * 二叉树规则有误
      */
     ERR_000009("ERR_000009", "二叉树规则有误"),

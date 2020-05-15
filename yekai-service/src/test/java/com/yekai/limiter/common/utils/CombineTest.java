@@ -2,6 +2,7 @@ package com.yekai.limiter.common.utils;
 
 import com.google.common.collect.Lists;
 import com.yekai.limiter.service.model.LimitKeyBO;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
 import java.util.List;
@@ -13,6 +14,7 @@ import java.util.Set;
  *
  * @author : LZQ Date: 2020/04/28  Version: 1.0
  */
+@Slf4j
 public class CombineTest {
 
     /**
@@ -26,6 +28,6 @@ public class CombineTest {
                 new LimitKeyBO("CODE","123"));
         Set<List<LimitKeyBO>> target = Combine.combination(keys);
 
-        target.forEach(System.out::println);
+        target.forEach(a -> log.info(a.toString()));
     }
 }

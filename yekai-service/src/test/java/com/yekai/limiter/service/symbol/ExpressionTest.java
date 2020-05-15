@@ -3,6 +3,7 @@ package com.yekai.limiter.service.symbol;
 import com.yekai.limiter.service.symbol.impl.AndSymbol;
 import com.yekai.limiter.service.symbol.impl.EqualSymbol;
 import com.yekai.limiter.service.symbol.impl.OrSymbol;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import java.util.Objects;
 import static com.yekai.limiter.service.symbol.Cell.CellType.*;
@@ -16,13 +17,14 @@ import static com.yekai.limiter.service.symbol.Cell.CellType.*;
  *
  * @author : LZQ Date: 2020/05/11  Version: 1.0
  */
+@Slf4j
 public class ExpressionTest {
 
     @Test
     public void testExpression(){
         TreeNode root = express("a");
         TreePrinter.show(root);
-        Expression.printMathExpression(root);
+        log.info(Expression.printMathExpression(root));
     }
 
     public static TreeNode express(String type) {

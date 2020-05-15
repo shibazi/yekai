@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableMap;
 import com.yekai.limiter.facade.LimiterControlFacade;
 import com.yekai.limiter.facade.model.LimiterReqDTO;
 import com.yekai.limiter.facade.model.LimiterResDTO;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
 import java.util.UUID;
@@ -13,6 +14,7 @@ import java.util.UUID;
  *
  * @author : LZQ Date: 2020/04/28  Version: 1.0
  */
+@Slf4j
 public class LimiterControlServiceTest {
 
     /**
@@ -27,6 +29,6 @@ public class LimiterControlServiceTest {
         limiterReqDTO.setLogId(UUID.randomUUID().toString());
         limiterReqDTO.setParams(ImmutableMap.of("BANK","ICBC","CODE","TRADE"));
         LimiterResDTO res = limiterControlFacade.limiterAcquire(limiterReqDTO);
-        System.out.println(res);
+        log.info(res.toString());
     }
 }

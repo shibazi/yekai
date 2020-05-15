@@ -1,6 +1,7 @@
 package com.yekai.limiter.service.model;
 
 import com.google.common.collect.Lists;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
 import java.util.List;
@@ -14,6 +15,7 @@ import java.util.List;
  *
  * @author : LZQ Date: 2020/04/28  Version: 1.0
  */
+@Slf4j
 public class LimitConditionTest {
 
     /**
@@ -23,6 +25,6 @@ public class LimitConditionTest {
     public void testGetKeyString(){
         List<LimitKeyBO> keys = Lists.newArrayList(new LimitKeyBO("ABC","5"),new LimitKeyBO("ICBC","4"),new LimitKeyBO("CCB","2"));
         LimitCondition condition = new LimitCondition(keys,10);
-        System.out.println(condition.getKeyString());
+        log.info(condition.getKeyString());
     }
 }

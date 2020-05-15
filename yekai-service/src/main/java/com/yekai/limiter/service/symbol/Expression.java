@@ -1,5 +1,9 @@
 package com.yekai.limiter.service.symbol;
 
+import com.yekai.limiter.common.exception.LimitException;
+import com.yekai.limiter.common.exception.ResponseCodeEnum;
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
@@ -15,6 +19,7 @@ import static com.yekai.limiter.service.symbol.Cell.CellType.*;
  *
  * @author : LZQ Date: 2020/05/11  Version: 1.0
  */
+@Slf4j
 public class Expression {
 
     /**
@@ -72,7 +77,8 @@ public class Expression {
                     }
                     break;
                 default:
-                    System.out.println("error");
+                    log.error("cell type error:{}",cell.getCellType());
+                    throw new LimitException(ResponseCodeEnum.ERR_000010);
             }
         }
         // 将剩余的操作符入队
@@ -102,18 +108,20 @@ public class Expression {
      *      * @param root
      *     
      */
-    public static void printMathExpression(TreeNode root) {
+    public static String printMathExpression(TreeNode root) {
+        StringBuilder sb = new StringBuilder();
         if (root != null) {
             if (Cell.CellType.VALUE != root.value.getCellType()) {
-                System.out.print("(");
+                sb.append("(");
             }
-            printMathExpression(root.rightChild);
-            System.out.print(root.value.getValue());
-            printMathExpression(root.leftChild);
+            sb.append(printMathExpression(root.rightChild));
+            sb.append(root.value.getValue());
+            sb.append(printMathExpression(root.leftChild));
 
             if (Cell.CellType.VALUE != root.value.getCellType()){
-                System.out.print(")");
+                sb.append(")");
             }
         }
+        return sb.toString();
     }
 }

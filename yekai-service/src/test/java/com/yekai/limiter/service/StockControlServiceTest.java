@@ -3,6 +3,7 @@ package com.yekai.limiter.service;
 import com.yekai.limiter.facade.StockControlFacade;
 import com.yekai.limiter.facade.model.BaseResDTO;
 import com.yekai.limiter.facade.model.StockReqDTO;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
 import java.util.UUID;
@@ -16,6 +17,7 @@ import java.util.UUID;
  *
  * @author : LZQ Date: 2020/05/07  Version: 1.0
  */
+@Slf4j
 public class StockControlServiceTest {
 
     private StockControlFacade stockControlFacade = new StockControlService();
@@ -31,6 +33,6 @@ public class StockControlServiceTest {
         stockReqDTO.setProductId("00001");
         stockReqDTO.setLogId(String.valueOf(UUID.randomUUID()));
         BaseResDTO res = stockControlFacade.decrStock(stockReqDTO);
-        System.out.println(res);
+        log.info(res.toString());
     }
 }

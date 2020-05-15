@@ -1,5 +1,6 @@
 package com.yekai.limiter.service.symbol;
 
+import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
 /**
@@ -11,6 +12,7 @@ import org.junit.Test;
  *
  * @author : LZQ Date: 2020/05/14  Version: 1.0
  */
+@Slf4j
 public class TreeNodeSwapTest {
 
     /**
@@ -20,11 +22,9 @@ public class TreeNodeSwapTest {
     public void testSwap() {
         TreeNode a = ExpressionTest.express("a");
         TreePrinter.show(a);
-        Expression.printMathExpression(a);
+        log.info(Expression.printMathExpression(a));
         TreeNodeSwap.swap1(a);
-        System.out.print("-->");
-        Expression.printMathExpression(a);
-        System.out.println();
+        log.info(Expression.printMathExpression(a));
 
 //        TreeNode b = ExpressionTest.express("b");
 ////        TreePrinter.show(b);

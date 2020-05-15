@@ -3,6 +3,7 @@ package com.yekai.limiter.service.biz;
 import com.google.common.collect.ImmutableMap;
 import com.yekai.limiter.manager.model.LimitInfoDO;
 import com.yekai.limiter.service.model.LimiterBO;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import java.util.List;
 
@@ -12,6 +13,7 @@ import java.util.List;
  *
  * @author : LZQ Date: 2020/05/13  Version: 1.0
  */
+@Slf4j
 public class MatcherTest {
 
     /**
@@ -20,6 +22,6 @@ public class MatcherTest {
     @Test
     public void testMatch(){
         List<LimitInfoDO> matched =Matcher.get().match(new LimiterBO("TRADE", ImmutableMap.of("BANK","ICBC","CODE","TRADE")));
-        System.out.println(matched);
+        log.info(matched.toString());
     }
 }
